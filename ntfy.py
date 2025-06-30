@@ -11,6 +11,7 @@ nyhed1 = entry["title"]
 linknyhed = entry["link"]
 kanye = requests.get("https://api.kanye.rest/").json()["quote"]
 ntfy = "https://ntfy.sh/urntfy"  # dit nfty topic
+
 text = f'Godmorgen, dagens sidste nyt er: ✏️ {nyhed1} ({linknyhed})\nKanye quote af i dag: "{kanye} " idags vejr er {nuvejr}°C. Husk at tage tøj på efter vejret! ☀️🌧️"'
 
 requests.post(ntfy, data=text.encode('utf-8'))
