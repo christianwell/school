@@ -15,7 +15,7 @@ text = f'Godmorgen, dagens sidste nyt er: ✏️ {nyhed1} ({linknyhed})\nKanye q
 while True:
     current_time = datetime.now().strftime("%H:%M")
     if current_time == tid:
-        requests.post("", data=text.encode('utf-8'))
+        requests.post(ntfy, data=text.encode('utf-8'))
         break
     time.sleep(30)
 
