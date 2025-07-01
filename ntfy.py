@@ -1,12 +1,23 @@
 import requests # type: ignore # gører så jeg kan send ting til ntfy.sh
 import feedparser # gører så jeg kan læse rss feeds
 
-linkvejr = "https://api.open-meteo.com/v1/"
-response = requests.get(linkvejr)
-data = response.json()  
-nuvejr = data["current_weather"]
-nuvejr = data["temperature"]
+linkvejr = (
+    "https://api.open-meteo.com/v1/forecast?"
+    ""
+    ","
+    ""
+    "&"
+    "&"
+    "&forecast_days=1"
+    "&temporal_resolution=native"
+    "&models=dmi_seamless"
+)
 
+response = requests.get(linkvejr)
+data = response.json()
+
+vejr = data["current_weather"]
+nuvejr = vejr["temperature"]
 d = feedparser.parse("https://www.dr.dk/nyheder/service/feeds/senestenyt")
 entry = d["entries"][0]
 nyhed1 = entry["title"]
